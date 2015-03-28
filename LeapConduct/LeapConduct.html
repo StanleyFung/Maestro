@@ -7,6 +7,7 @@
     <script src="leapplugin.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="musicLib.js" ></script>
+    <script src="../wavesurfer.js/dist/wavesurfer.min.js"></script>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -36,18 +37,35 @@
     </style>
 </head>
 <body>
+  
+  <div id="output" class="output"></div>
+  <div id="cursor"></div>
+  
+  <div id="movingLeft"></div>
+  <div id="movingRight"></div>
+  <div id="movingUp"></div>
+  <div id="movingDown"></div>
+  <div id="bpm"></div>
+  <div class="container">
+            <div id="demo">
+                <div id="waveform"></div>
 
-<div id="output" class="output"></div>
-<div id="cursor"></div>
+                <div class="controls">
+                    <button class="btn btn-primary" data-action="play">
+                        <i class="glyphicon glyphicon-play"></i>
+                        Play
+                        /
+                        <i class="glyphicon glyphicon-pause"></i>
+                        Pause
+                    </button>
 
-<div id="movingLeft"></div>
-<div id="movingRight"></div>
-<div id="movingUp"></div>
-<div id="movingDown"></div>
-<div id="bpm"></div>
-
-<audio id = "songs" src="testsong.mp3" controls></audio>
-
+                    <div id="equalizer">
+                        <!-- Here be equalizer sliders -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 <div class="buttonWrap">
     <button>Hover Me!</button>
 </div>

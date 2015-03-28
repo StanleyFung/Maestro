@@ -212,6 +212,15 @@ var WaveSurfer = {
     setVolume: function (newVolume) {
         this.backend.setVolume(newVolume);
     },
+    /**
+     * Set the playback volume.
+     *
+     * @param {Number} newVolume A value between 0 and 1, 0 being no
+     * volume and 1 being full volume.
+     */
+    getVolume: function () {
+        return this.backend.getVolume();
+    },
 
     /**
      * Set the playback rate.
@@ -221,6 +230,14 @@ var WaveSurfer = {
      */
     setPlaybackRate: function (rate) {
         this.backend.setPlaybackRate(rate);
+    },
+    
+    /**
+     * get the playback rate.
+     *
+     */
+    getPlaybackRate: function () {
+        return this.backend.getPlaybackRate();
     },
 
     /**

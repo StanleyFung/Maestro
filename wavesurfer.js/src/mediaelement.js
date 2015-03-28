@@ -86,6 +86,13 @@ WaveSurfer.util.extend(WaveSurfer.MediaElement, {
         this.media.playbackRate = this.playbackRate;
     },
 
+    /**
+     * Get the audio source playback rate.
+     */
+    getPlaybackRate: function () {
+        return this.playbackRate
+    },
+
     seekTo: function (start) {
         if (start != null) {
             this.media.currentTime = start;

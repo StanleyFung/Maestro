@@ -336,6 +336,13 @@ WaveSurfer.WebAudio = {
             this.play();
         }
     }
+    
+    /**
+     * Set the audio source playback rate.
+     */
+    getPlaybackRate: function (value) {
+        return this.playbackRate;
+    }
 };
 
 WaveSurfer.WebAudio.state = {};
