@@ -25,13 +25,16 @@ var movingRightLabel = document.getElementById('movingRight');
 var movingUpLabel = document.getElementById('movingUp');
 var movingDownLabel = document.getElementById('movingDown');
 var bpmLabel = document.getElementById('bpm');
+var songBPM = 140;
 
 var velocityThreshold = 55;
 
 var timeIntervals = [120, 120, 120, 120]
 var previousTime = 0;
 
-var songStarted = false
+var songStarted = false;
+
+var pbAdj = new playbackAdjuster();
 
 Leap.loop({
     hand: function (hand) {
@@ -143,6 +146,7 @@ Leap.loop({
                     var average = total / 4
                     var speed = 1000 / average * 60;
                     bpmLabel.innerHTML = "BPM: " + speed;
+                    pbAdj.adjustSpeed(speed / songBPM);
 
                 }
             }
