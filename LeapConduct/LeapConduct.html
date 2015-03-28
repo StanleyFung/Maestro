@@ -1,20 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <script>global=window</script>
+
     <script src="http://js.leapmotion.com/leap-0.6.4.js"></script>
     <script src="leapplugin.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="musicLib.js" ></script>
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+
+    <script src='myo.js'></script>
+    <script type="text/javascript" src="LeapConduct.js"></script>
+
     <style>
         body {
+            background-color : #0A0A0A;
+            color : #84FFF1;
+            font-family: 'Open Sans', sans-serif;
             font-size: 1.5em;
             line-height: 2em;
         }
 
         .buttonWrap {
             text-align: center;
-            margin-top: 200px;
+            margin-top: 30px;
         }
 
         button {
@@ -22,7 +34,6 @@
             margin: auto;
         }
     </style>
-
 </head>
 <body>
 
@@ -35,13 +46,13 @@
 <div id="movingDown"></div>
 <div id="bpm"></div>
 
-<audio id = "songs" src="testsong.mp3" autoplay controls></audio>
+<audio id = "songs" src="testsong.mp3" controls></audio>
 
 <div class="buttonWrap">
     <button>Hover Me!</button>
 </div>
 
-<script type="text/javascript" src="LeapConduct.js"></script>
-
+<div> MYO Input </div>
+<div id = "myoinput"></div>
 </body>
 </html>
