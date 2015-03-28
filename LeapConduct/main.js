@@ -1,20 +1,22 @@
-var SONG_ID = "songs"
+'use strict';
 
-function playbackAdjuster() {
-    this.wavesurfer = Object.create(WaveSurfer);
+// Create an instance
+var wavesurfer = Object.create(WaveSurfer);
 
-    this.initEqualizer = function(){
-        this.wavesurfer.init({
+// Init & load audio file
+document.addEventListener('DOMContentLoaded', function () {
+    // Init
+    wavesurfer.init({
         container: document.querySelector('#waveform'),
         waveColor: '#A8DBA8',
         progressColor: '#3B8686'
     });
 
     // Load audio from URL
-    this.wavesurfer.load('testsong.mp3');
+    wavesurfer.load('../media/testsong.mp3');
 
     // Equalizer
-    this.wavesurfer.on('ready', function () {
+    wavesurfer.on('ready', function () {
         var EQ = [
             {
                 f: 32,
@@ -51,7 +53,7 @@ function playbackAdjuster() {
 
         // Create filters
         var filters = EQ.map(function (band) {
-            var filter = this.wavesurfer.backend.ac.createBiquadFilter();
+            var filter = wavesurfer.backend.ac.createBiquadFilter();
             filter.type = band.type;
             filter.gain.value = 0;
             filter.Q.value = 1;
@@ -95,56 +97,12 @@ function playbackAdjuster() {
     });
 
     // Log errors
-    this.wavesurfer.on('error', function (msg) {
+    wavesurfer.on('error', function (msg) {
         console.log(msg);
     });
 
     // Bind play/pause button
     document.querySelector(
         '[data-action="play"]'
-    ).addEventListener('click', this.wavesurfer.playPause.bind(this.wavesurfer));
-    }
-  
-    this.adjustSpeed = function (factor) {
-        console.log("Adjusting Speed by " + factor);
-        var song = document.getElementById(SONG_ID);
-        wavesurfer.setPlaybackRate(this.wavesurfer.getPlaybackRate() * factor);
-        song.playbackRate = factor;
-        console.log("Current playback speed " + song.playbackRate)
-    }
-
-    this.adjustVolume = function (factor) {
-        console.log("Adjusting Volume by " + factor);
-        var song = document.getElementById(SONG_ID);
-        song.volume = factor + song.volume;
-        this.wavesurfer.setVolume(factor + this.wavesurfer.getVolume())
-        console.log("Current playback speed " + song.volume)
-    }
-
-    this.pausePlayBack = function (){
-        var song = document.getElementById(SONG_ID);
-        song.pause();
-    }
-
-    this.stopPlayBack = function (){
-        var song = document.getElementById(SONG_ID);
-        song.pause();
-        song.src = '';
-        song.currentTime = 0;
-    }
-
-    this.play = function (){
-        var song = document.getElementById(SONG_ID);
-        song.play();
-    }
-    this.play = function (src){
-        var song = document.getElementById(SONG_ID);
-        song.src = src;
-        song.play();
-    }
-    this.getSongObject = function(){
-        return document.getElementById(SONG_ID);
-    }
-    this.initEqualizer()
-
-}
+    ).addEventListener('click', wavesurfer.playPause.bind(wavesurfer));
+});
