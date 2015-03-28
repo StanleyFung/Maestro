@@ -39,17 +39,17 @@ $(document).ready(function () {
 
     //Myo
     var myoinput = document.getElementById('myoinput');
-
     var myo = Myo.create();
+
     myo.on('fist', function(edge){
         //Edge is true if it's the start of the pose, false if it's the end of the pose
         if(edge){
-            //pbAdj.pausePlayBack()
+            pbAdj.pausePlayBack()
         }
     });
 
     myo.on('fingers_spread', function(){
-        //pbAdj.play()
+        pbAdj.play()
     })
 
     myo.on('imu', function (data) {
@@ -116,7 +116,6 @@ $(document).ready(function () {
                 "        <br/>y: " + (screenPosition[1].toPrecision(PRECISION_DECIMAL)) + 'px' +
                 "        <br/>z: " + (screenPosition[2].toPrecision(PRECISION_DECIMAL)) + 'px';
 
-
             output.html(outputContent);
             movingLeftLabel.innerHTML = "Moving Left: " + movingLeft;
             movingRightLabel.innerHTML = "Moving Right: " + movingRight;
@@ -124,58 +123,65 @@ $(document).ready(function () {
             movingDownLabel.innerHTML = "Moving Down: " + movingDown;
 
             //Conducting Loop
-
-            if (stageOfConducting == UP) {
-                if (movingDown) {
-                    songStarted = true
-                    stageOfConducting = DOWN
-                    console.log("Moved to Down")
-
-                    isMovingRight = false
-                    isMovingUp = false
-
-                    movingLeft = false
-                    movingRight = false
-                    movingUp = false
-                    movingDown = false
-                    oldX = 0;
-                    oldY = 0;
-                    timeIntervals[DOWN] = currentTime - previousTime
-                    previousTime = currentTime
-                }
-            }
-            else if (stageOfConducting == DOWN) {
-                if (movingLeft) {
-                    stageOfConducting += 1
-                    console.log("Moved to Left")
-                    timeIntervals[DOWN] = currentTime - previousTime
-                    previousTime = currentTime
-                }
-            } else if (stageOfConducting == LEFT) {
-                if (movingRight) {
-                    stageOfConducting += 1
-                    console.log("Moved to Right")
-                    timeIntervals[RIGHT] = currentTime - previousTime
-                    previousTime = currentTime
-                }
-            } else if (stageOfConducting == RIGHT) {
-                if (movingLeft && movingUp) {
-                    stageOfConducting += 1
-                    console.log("Moved to Up")
-                    timeIntervals[UP] = currentTime - previousTime
-                    previousTime = currentTime
-                    //Update BPM
-                    if (songStarted) {
-                        var total = timeIntervals[DOWN] + timeIntervals[LEFT] + timeIntervals[RIGHT] + timeIntervals[UP];
-                        var average = total / 4
-                        var speed = 1000 / average * 60;
-                        bpmLabel.innerHTML = "BPM: " + speed;
-                        pbAdj.adjustSpeed(speed / songBPM);
-
+            if(!songStarted){
+                if (stageOfConducting == UP) {
+                    if (movingDown) {
+                        songStarted = true
                     }
                 }
+            }else{
+                if (stageOfConducting == UP) {
+                    if (movingDown) {
+                        stageOfConducting = DOWN
+                        console.log("Moved to Down")
+
+                        isMovingRight = false
+                        isMovingUp = false
+
+                        movingLeft = false
+                        movingRight = false
+                        movingUp = false
+                        movingDown = false
+                        oldX = 0;
+                        oldY = 0;
+                        timeIntervals[DOWN] = currentTime - previousTime
+                        previousTime = currentTime
+                    }
+                }
+                else if (stageOfConducting == DOWN) {
+                    if (movingLeft) {
+                        stageOfConducting += 1
+                        console.log("Moved to Left")
+                        timeIntervals[DOWN] = currentTime - previousTime
+                        previousTime = currentTime
+                    }
+                } else if (stageOfConducting == LEFT) {
+                    if (movingRight) {
+                        stageOfConducting += 1
+                        console.log("Moved to Right")
+                        timeIntervals[RIGHT] = currentTime - previousTime
+                        previousTime = currentTime
+                    }
+                } else if (stageOfConducting == RIGHT) {
+                    if (movingLeft && movingUp) {
+                        stageOfConducting += 1
+                        console.log("Moved to Up")
+                        timeIntervals[UP] = currentTime - previousTime
+                        previousTime = currentTime
+                        //Update BPM
+                        if (songStarted) {
+                            var total = timeIntervals[DOWN] + timeIntervals[LEFT] + timeIntervals[RIGHT] + timeIntervals[UP];
+                            var average = total / 4
+                            var speed = 1000 / average * 60;
+                            bpmLabel.innerHTML = "BPM: " + speed;
+                            pbAdj.adjustSpeed(speed / songBPM);
+
+                        }
+                    }
+                }
+                oldTime = currentTime;
             }
-            oldTime = currentTime;
+
         }
     })
         .use('screenPosition', {
