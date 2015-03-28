@@ -72,6 +72,84 @@
 
 	<script>
 
+		function DirectionSensor(name){
+			this.name = name
+			this.xMean = 0;
+			this.xAccelTotal = 0;
+			this.obs = 0;
+			this.xAccelLowCounter = 0;
+
+			this.streamingMean = function(data){
+				this.xMean = (this.xMean * this.obs + data)/(this.obs+1);
+				this.obs = this.obs + 1;
+			}
+
+			this.integrate = function(data){
+				if (Math.abs(data) > 3 * this.xMean){
+					this.xAccelTotal += data;
+				}
+			}
+
+			this.addData = function(data){		
+				var accelX = data;
+
+				this.streamingMean(accelX);
+				this.integrate(accelX);
+
+				if (Math.abs(accelX) < Math.abs(this.xMean)){
+					this.xAccelLowCounter += 1;
+				}
+				else{
+					this.xAccelLowCounter = 0;
+				}
+
+				if (this.xAccelLowCounter > 10){
+					this.xAccelLowCounter = 0;
+					this.xAccelTotal = 0;
+					console.log("Reseting Accel to 0");
+				}
+				this.check(accelX)
+			}
+
+			this.check = function(accelX){
+				if(this.movingRight){
+					if(this.xAccelTotal < -6 * Math.abs(this.xMean)){
+						console.log(name + " Changed To Left ")
+						console.log("Total " + this.xAccelTotal + " mean: " + this.xMean)
+						this.movingRight =  false
+					}
+				}else{
+					if(this.xAccelTotal > 6 * Math.abs(this.xMean)){
+							console.log(name + " Changed To Right ")
+							console.log("Total " + this.xAccelTotal + " mean: " + this.xMean)
+							this.movingRight =  true
+						}
+					
+					// var difference = Math.abs(accelX - this.previousAccelX)
+					// if(difference > 0.5){
+					// 	if(this.movingRight){
+					// 		if(accelX > this.previousAccelX){
+					// 			this.movingRight = true
+					// 		 	// console.log("Moving Right ")
+					// 		}
+					// 	}
+					// 	else{
+					// 		if(accelX < this.previousAccelX){
+					// 			 this.movingRight = false
+					// 		 	// console.log("Moving Left ")
+					// 		}
+					// 	}
+
+				}
+				this.previousAccelX = accelX
+
+			}
+
+		}
+
+		
+
+
 		var myo = Myo.create();
 	
 		var createGraph = function(elementId, startingData, range, resolution){
@@ -135,6 +213,12 @@
 		var previousAccelX = 0
 		var movingRight = false
 
+		var	xDetector = new DirectionSensor("X");
+		var	yDetector = new DirectionSensor("Y");
+		var	zDetector = new DirectionSensor("Z");
+
+
+		
 		myo.on('imu', function(data){
 			// gyroGraph.addData(data.gyroscope);
 			orientationGraph.addData(data.orientation);
@@ -158,33 +242,13 @@
 			coorZ.innerHTML = "Z: " + data.orientation.z
 			accelZ.innerHTML = "Z Accel: " + data.accelerometer.z
 
-			var accelX = data.accelerometer.y
+			var accelX = Math.floor(1000*data.accelerometer.y)/1000
+			var accelY = Math.floor(1000*data.accelerometer.x)/1000
+			var accelZ = Math.floor(1000*data.accelerometer.z)/1000
+			xDetector.addData(accelX)
+			// yDetector.addData(accelY)
+			// zDetector.addData(accelZ)
 
-			// console.log("AccelX : " + accelX + " PrevAccelX: " + previousAccelX)
-			if(movingRight){
-				if(accelX < 0){
-					console.log("Changed To Left ")
-					movingRight =  false
-				}
-			}else{
-				if(accelX > 0){
-					console.log("Changed To Right ")
-					movingRight =  true
-				}
-			}
-
-			var difference = Math.abs(accelX - previousAccelX)
-			if(difference > 0.5){
-				if(accelX > previousAccelX){
-					movingRight = true
-				 	// console.log("Moving Right ")
-				}else if(accelX < previousAccelX){
-					 movingRight = false
-				 	// console.log("Moving Left ")
-				}
-			}
-	
-			previousAccelX = accelX
 
 			accelerationGraph.addData(data.accelerometer);
 		})
