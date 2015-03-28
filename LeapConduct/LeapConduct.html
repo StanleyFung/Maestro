@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="http://js.leapmotion.com/leap-0.6.4.js"></script>
+  <script src="leapplugin.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      font-size: 1.5em;
+      line-height: 2em;
+    }
+
+    #cursor {
+      width: 60px;
+      height: 60px;
+      position: fixed;
+      margin-left: -50px;
+      margin-top: -50px;
+      z-index: 910;
+      opacity: 0.9;
+
+      background: black;
+      border-radius: 100%;
+      background: -webkit-radial-gradient(100px 100px, circle, #5cabff, #000);
+      background: -moz-radial-gradient(100px 100px, circle, #5cabff, #000);
+      background: radial-gradient(100px 100px, circle, #5cabff, #000);
+    }
+    .buttonWrap{
+      text-align: center;
+      margin-top: 200px;
+    }
+    button{
+      padding: 1em;
+      margin: auto;
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <div id="output" class="output"></div>  
+  <div id="cursor"></div>
+
+  <div id="movingLeft"></div>
+  <div id="movingRight"></div>
+  <div id="movingUp"></div>
+  <div id="movingDown"></div>
+
+
+  <div class="buttonWrap">
+    <button>Hover Me!</button>
+  </div>
+
+  <script type="text/javascript">
+
+    var oldX = 0;
+    var oldY = 0;
+    var isMovingRight = false
+    var isMovingUp = false
+
+    var movingLeft = false
+    var movingRight = false
+    var movingUp = false
+    var movingDown = false
+
+    //Stage of conducting is int from 0 - 3
+    var DOWN = 0
+    var LEFT = 1
+    var RIGHT = 2
+    var UP = 3
+    var stageOfConducting = UP
+
+    window.cursor = $('#cursor');
+    window.output = $('#output');
+    var movingLeftLabel = document.getElementById('movingLeft')
+    var movingRightLabel = document.getElementById('movingRight')
+    var movingUpLabel = document.getElementById('movingUp')
+     var movingDownLabel = document.getElementById('movingDown')
+
+    var velocityThreshold = 75
+    Leap.loop({hand: function(hand){
+
+      var screenPosition = hand.screenPosition(hand.palmPosition);
+      var currentX = screenPosition[0].toPrecision(4)
+      var differenceX =  currentX- oldX
+     
+      var currentY = screenPosition[1].toPrecision(4)
+      var differenceY =  currentY- oldY
+     
+      if(Math.abs(differenceX) > velocityThreshold){
+        // console.log(differenceX)
+        
+        if(isMovingRight && differenceX < 0){
+          // console.log("Changed Direction Left")
+          movingLeft = true
+          movingRight = false
+        }else if (!isMovingRight && differenceX > 0){
+          // console.log("Changed Direction Right")
+          movingRight = true
+          movingLeft = false
+        }
+
+        if(differenceX > 0){
+          isMovingRight = true
+        }else if(differenceX < 0){
+         isMovingRight = false
+        }
+      }
+      oldX = currentX
+
+   if(Math.abs(differenceY) > velocityThreshold){
+        
+        if(isMovingUp && differenceY < 0){
+          // console.log("Changed Direction Up")
+          movingUp = true
+          movingDown = false
+        }else if (!isMovingUp && differenceY > 0){
+          // console.log("Changed Direction Down")
+          movingUp = false
+          movingDown = true
+        }
+
+        if(differenceY > 0){
+          isMovingUp = true
+      
+        }else if(differenceY < 0){
+         isMovingUp = false
+        }
+      }
+      oldY = currentY
+
+      var outputContent = "x: " + (screenPosition[0].toPrecision(4)) + 'px' +
+             "        <br/>y: " + (screenPosition[1].toPrecision(4)) + 'px' +
+             "        <br/>z: " + (screenPosition[2].toPrecision(4)) + 'px';
+
+
+      // hide and show the cursor in order to get second-topmost element.
+      cursor.hide();
+      var el = document.elementFromPoint(
+          hand.screenPosition()[0],
+          hand.screenPosition()[1]
+      );
+      cursor.show();
+
+      output.html(outputContent);
+      movingLeftLabel.innerHTML = "Moving Left: " + movingLeft;
+      movingRightLabel.innerHTML = "Moving Right: " + movingRight;
+      movingUpLabel.innerHTML  = "Moving Up: " + movingUp;
+      movingDownLabel.innerHTML = "Moving Down: " + movingDown;
+
+
+      cursor.css({
+        left: screenPosition[0] + 'px',
+        top:  screenPosition[1] + 'px'
+      });
+
+      //Conducting Loop
+   
+      if(stageOfConducting == DOWN){
+        if(movingLeft){
+          stageOfConducting +=1  
+          console.log("Moved to Left")
+        }
+      }else if(stageOfConducting == LEFT){
+        if(movingRight){
+          stageOfConducting +=1  
+          console.log("Moved to Right")
+        }
+      }else if(stageOfConducting == RIGHT){
+        if(movingLeft && movingUp){
+          stageOfConducting +=1  
+          console.log("Moved to Up")
+        }
+      }else if(stageOfConducting == UP){
+         if(movingDown){
+          stageOfConducting = DOWN
+          console.log("Moved to Down")
+
+            isMovingRight = false
+            isMovingUp = false
+
+            movingLeft = false
+            movingRight = false
+            movingUp = false
+            movingDown = false
+            oldX = 0;
+            oldY = 0;
+        }
+      }
+
+    }})
+
+
+    .use('screenPosition', {
+      scale: 1
+    });
+
+  </script>
+
+</body>
+</html>
