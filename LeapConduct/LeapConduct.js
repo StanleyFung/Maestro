@@ -44,12 +44,12 @@ $(document).ready(function () {
     myo.on('fist', function(edge){
         //Edge is true if it's the start of the pose, false if it's the end of the pose
         if(edge){
-            pbAdj.pausePlayBack()
+            //pbAdj.pausePlayBack()
         }
     });
 
     myo.on('fingers_spread', function(){
-        pbAdj.play()
+        //pbAdj.play()
     })
 
     myo.on('imu', function (data) {
