@@ -2,6 +2,7 @@
  * Created by sfung on 2015-03-28.
  */
 $(document).ready(function () {
+
     var oldX = 0;
     var oldY = 0;
     var oldTime = 0;
@@ -12,6 +13,7 @@ $(document).ready(function () {
     var movingRight = false
     var movingUp = false
     var movingDown = false
+
 
 //Stage of conducting is int from 0 - 3
     var DOWN = 0
@@ -36,6 +38,7 @@ $(document).ready(function () {
     var songStarted = false;
 
     var pbAdj = new playbackAdjuster();
+    pbAdj.initEqualizer()
 
     //Myo
     var myoinput = document.getElementById('myoinput');

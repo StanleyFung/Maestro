@@ -1,20 +1,21 @@
 var SONG_ID = "songs"
 
+var wavesurfer = Object.create(WaveSurfer);
+
 function playbackAdjuster() {
-    this.wavesurfer = Object.create(WaveSurfer);
 
     this.initEqualizer = function(){
-        this.wavesurfer.init({
+        wavesurfer.init({
         container: document.querySelector('#waveform'),
         waveColor: '#A8DBA8',
         progressColor: '#3B8686'
     });
 
     // Load audio from URL
-    this.wavesurfer.load('testsong.mp3');
+    wavesurfer.load('testsong.mp3');
 
     // Equalizer
-    this.wavesurfer.on('ready', function () {
+    wavesurfer.on('ready', function () {
         var EQ = [
             {
                 f: 32,
@@ -51,7 +52,7 @@ function playbackAdjuster() {
 
         // Create filters
         var filters = EQ.map(function (band) {
-            var filter = this.wavesurfer.backend.ac.createBiquadFilter();
+            var filter = wavesurfer.backend.ac.createBiquadFilter();
             filter.type = band.type;
             filter.gain.value = 0;
             filter.Q.value = 1;
@@ -95,30 +96,26 @@ function playbackAdjuster() {
     });
 
     // Log errors
-    this.wavesurfer.on('error', function (msg) {
+    wavesurfer.on('error', function (msg) {
         console.log(msg);
     });
 
     // Bind play/pause button
     document.querySelector(
         '[data-action="play"]'
-    ).addEventListener('click', this.wavesurfer.playPause.bind(this.wavesurfer));
+    ).addEventListener('click', wavesurfer.playPause.bind(wavesurfer));
     }
   
     this.adjustSpeed = function (factor) {
         console.log("Adjusting Speed by " + factor);
-        var song = document.getElementById(SONG_ID);
-        wavesurfer.setPlaybackRate(this.wavesurfer.getPlaybackRate() * factor);
-        song.playbackRate = factor;
-        console.log("Current playback speed " + song.playbackRate)
+        wavesurfer.setPlaybackRate(factor);
+        console.log("Current playback speed " + wavesurfer.backend.playbackRate)
     }
 
     this.adjustVolume = function (factor) {
         console.log("Adjusting Volume by " + factor);
-        var song = document.getElementById(SONG_ID);
-        song.volume = factor + song.volume;
-        this.wavesurfer.setVolume(factor + this.wavesurfer.getVolume())
-        console.log("Current playback speed " + song.volume)
+        wavesurfer.backend.setVolume(factor + wavesurfer.backend.getVolume())
+        console.log("Current playback speed " + wavesurfer.backend.getVolume())
     }
 
     this.pausePlayBack = function (){
@@ -145,6 +142,4 @@ function playbackAdjuster() {
     this.getSongObject = function(){
         return document.getElementById(SONG_ID);
     }
-    this.initEqualizer()
-
 }
