@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Load audio from URL
-    wavesurfer.load('../media/demo.wav');
+    wavesurfer.load('../media/testsong.mp3');
 
     // Equalizer
     wavesurfer.on('ready', function () {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 value: 0,
                 title: filter.frequency.value
             });
-            input.style.display = 'inline-block';
+            input.style.visibility = 'hidden';
             input.setAttribute('orient', 'vertical');
             wavesurfer.drawer.style(input, {
                 'webkitAppearance': 'slider-vertical',
@@ -105,24 +105,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector(
         '[data-action="play"]'
     ).addEventListener('click', wavesurfer.playPause.bind(wavesurfer));
-
-    // Progress bar
-    (function () {
-        var progressDiv = document.querySelector('#progress-bar');
-        var progressBar = progressDiv.querySelector('.progress-bar');
-
-        var showProgress = function (percent) {
-            progressDiv.style.display = 'block';
-            progressBar.style.width = percent + '%';
-        };
-
-        var hideProgress = function () {
-            progressDiv.style.display = 'none';
-        };
-
-        wavesurfer.on('loading', showProgress);
-        wavesurfer.on('ready', hideProgress);
-        wavesurfer.on('destroy', hideProgress);
-        wavesurfer.on('error', hideProgress);
-    }());
 });
