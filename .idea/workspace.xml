@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2484a05f-5c29-457b-908a-8ac459c54343" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/LeapConduct.html" afterPath="$PROJECT_DIR$/LeapConduct/LeapConduct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" afterPath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/maestro.css" afterPath="$PROJECT_DIR$/LeapConduct/maestro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/musicLib.js" afterPath="$PROJECT_DIR$/LeapConduct/musicLib.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="2484a05f-5c29-457b-908a-8ac459c54343" name="Default" comment="" />
     <ignored path="MyoConduct.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
