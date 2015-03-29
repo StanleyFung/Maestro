@@ -15,7 +15,6 @@ window.addEventListener('load', function () {
     var movingUp = false
     var movingDown = false
 
-
 //Stage of conducting is int from 0 - 3
     var DOWN = 0
     var LEFT = 1

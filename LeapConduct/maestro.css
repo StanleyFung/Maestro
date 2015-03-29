@@ -61,3 +61,16 @@ canvas {
 
 .equalizerTitle {
 }
+
+.calibratebutton {
+}
+
+.configsidebar {
+    position: absolute;
+    width: 200px;
+    height: 600px;
+    top:0;
+    right:0;
+    background: lightgrey;
+
+}
