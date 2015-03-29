@@ -24,6 +24,12 @@ window.addEventListener('load', function () {
 
     window.output = $('#output');
     var bpmLabel = document.getElementById('bpm');
+    var menu = document.getElementById('menu8');
+    
+    
+    document.getElementById("mario").onclick = function(){
+      pbAdj.changeSong("mario.mp3")
+    }
 
     var velocityThreshold = 55;
 
@@ -38,6 +44,18 @@ window.addEventListener('load', function () {
     var equalizerChangeThreshold = 0.08;
     var negEqualizerChangeThreshhold = -1 * equalizerChangeThreshold;
 
+    var movingBPMAverage = []
+    var movingBPMAverageTick = 0
+  Leap.loop({})
+    .use('playback', {
+      recording: 'pinch-57fps.json.lz',
+      requiredProtocolVersion: 6,
+      pauseOnHand: true,
+      loop: true
+    })
+    .use('riggedHand');
+  
+  window.controller = Leap.loopController;
 //LEAP
     Leap.loop({
 
