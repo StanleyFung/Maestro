@@ -16,22 +16,48 @@
 <body>
 <div id="debugger"></div>
 
-        <div id="menu8">
-         <ul>
-            <li><button class = "btn btn-warning" id = "mario" href="#" onclick="">Mario</button></li>
-            <li><button class = "btn btn-warning" id = "zelda" href="#" onclick="">Zelda</button></li>
-            <li><button class = "btn btn-warning" id = "testsong" href="#" onclick="">Khalifa</button></li>
-            <li><button class = "btn btn-warning" id = "canond" href="#" onclick="">Canon in D</button></li>
-            <li><button class = "btn btn-warning" id = "gangam" href="#" onclick="">Gangam Style</button></li>
-            <li><button class = "btn btn-warning" id = "goodNight" href="#" onclick="">Good Time</button></li>
-            <li><button class = "btn btn-warning" id = "smackThat" href="#" onclick="">Smack That</button></li>
-         </ul>
-      </div>
+<div id="menu8">
+    <ul>
+        <li>
+            <button class="btn btn-warning floatleft" id="mario" href="#" onclick="">Mario</button>
+            <div id="mario_bpm" class="bpmlabel">100 BPM</div>
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="zelda" href="#" onclick="">Zelda</button>
+            <div id="zelda_bpm" class="bpmlabel">100 BPM</div>
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="testsong" href="#" onclick="">Khalifa</button>
+            <div id="wiz_bpm" class="bpmlabel">140 BPM</div>
+
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="canond" href="#" onclick="">Canon in D</button>
+            <div id="canon_bpm" class="bpmlabel">60 BPM</div>
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="gangam" href="#" onclick="">Gangam Style</button>
+            <div id="gangnam_bpm" class="bpmlabel">128 BPM</div>
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="goodNight" href="#" onclick="">Good Time</button>
+            <div id="goodtime_bpm" class="bpmlabel">128 BPM</div>
+        </li>
+        <li>
+            <button class="btn btn-warning floatleft" id="smackThat" href="#" onclick="">Smack That</button>
+            <div id="smack_bpm" class="bpmlabel">120 BPM</div>
+        </li>
+    </ul>
+</div>
+
+
 <div class="container">
     <div id="demo">
-        <div id="waveform" class="waveTrack"></div>
+        <div class="beatsperminute">
+            <div>Beats Per Minute</div>
+            <div id="bpm">0</div>
+        </div>
 
-        <div id="bpm"  class="beatsperminute" >Beats Per Minute: </div>
         <div class="controls playpause">
             <button class="btn btn-primary" data-action="play">
                 <i class="glyphicon glyphicon-play"></i>
@@ -41,21 +67,29 @@
                 Pause
             </button>
         </div>
+        <div id="setZero" class="calibratebutton">
+            <button class="btn btn-primary ">Calibrate</button>
+        </div>
+        <div id="waveform" class="waveTrack"></div>
     </div>
 </div>
 
-
 <div class="configsidebar">
-    <div id="setZero">
-        <div class="configtitle">Configuration</div>
-        <img src="calibrateicon.png" class="calibrationicon">
-        <button class="btn btn-primary calibratebutton">Calibrate!</button>
-    </div>
-
     <div class="equalizerBars">
         <div class="equalizerTitle">Equalizer</div>
         <div id="equalizer">
             <!-- Here be equalizer sliders -->
+        </div>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button id="equalizerLabelBass" type="button" class="btn btn-default">Bass</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="equalizerLabelMid" type="button" class="btn btn-default">Mid</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="equalizerLabelTreble" type="button" class="btn btn-default">Treble</button>
+            </div>
         </div>
     </div>
 </div>
@@ -64,6 +98,9 @@
 <div id="satb"></div>
 <div id="height"></div>
 <div id="myoinput"></div>
+<div id="statuslabel" class="statuslabel">DETECTING...</div>
+
+<img src="Conductor%20Wand.PNG" class = "baton"/>
 </body>
 
 <script>global = window</script>

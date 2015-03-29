@@ -24,6 +24,10 @@ window.addEventListener('load', function () {
 
     window.output = $('#output');
     var bpmLabel = document.getElementById('bpm');
+    var status = document.getElementById('statuslabel');
+    var eqLabelBass = document.getElementById('equalizerLabelBass');
+    var eqLabelMid = document.getElementById('equalizerLabelMid');
+    var eqLabelTreble = document.getElementById('equalizerLabelTreble');
     var menu = document.getElementById('menu8');
 
 
@@ -61,6 +65,7 @@ window.addEventListener('load', function () {
 
     var equalizerChangeThreshold = 0.08;
     var negEqualizerChangeThreshhold = -1 * equalizerChangeThreshold;
+    var previousConductGestureTime = 0;
 
 //LEAP
     Leap.loop({
@@ -73,6 +78,16 @@ window.addEventListener('load', function () {
 
             var currentY = screenPosition[1].toPrecision(PRECISION_DECIMAL);
             var differenceY = currentY - oldY;
+
+
+            if(currentTime - previousConductGestureTime > 1500){
+                console.log("Dun Goofed")
+                stageOfConducting = UP;
+                previousConductGestureTime = currentTime;
+                status.style.fontSize = "50px"
+                status.innerHTML = "DETECTING..."
+            }
+
 
             if (Math.abs(differenceX) > velocityThreshold) {
                 // console.log(differenceX)
@@ -123,8 +138,10 @@ window.addEventListener('load', function () {
             if (stageOfConducting == UP) {
 
                 if (movingDown) {
+                    previousConductGestureTime = currentTime
                     stageOfConducting = DOWN
-                    console.log("Moved to Down")
+                    status.style.fontSize = "100px"
+                    status.innerHTML = "DOWN"
 
                     isMovingRight = false
                     isMovingUp = false
@@ -142,8 +159,11 @@ window.addEventListener('load', function () {
             else if (stageOfConducting == DOWN) {
 
                 if (movingLeft) {
+                    previousConductGestureTime = currentTime
+
                     stageOfConducting += 1
-                    console.log("Moved to Left")
+                    status.style.fontSize = "100px"
+                    status.innerHTML = "LEFT"
                     timeIntervals[DOWN] = currentTime - previousTime
                     previousTime = currentTime
                     if (!songStarted) {
@@ -153,15 +173,21 @@ window.addEventListener('load', function () {
                 }
             } else if (stageOfConducting == LEFT) {
                 if (movingRight) {
+                    previousConductGestureTime = currentTime
+
                     stageOfConducting += 1
-                    console.log("Moved to Right")
+                    status.style.fontSize = "100px"
+                    status.innerHTML = "RIGHT"
                     timeIntervals[RIGHT] = currentTime - previousTime
                     previousTime = currentTime
                 }
             } else if (stageOfConducting == RIGHT) {
                 if (movingLeft && movingUp) {
+                    previousConductGestureTime = currentTime
+
                     stageOfConducting += 1
-                    console.log("Moved to Up")
+                    status.style.fontSize = "100px"
+                    status.innerHTML = "UP"
                     timeIntervals[UP] = currentTime - previousTime
                     previousTime = currentTime
                     //Update BPM
@@ -180,9 +206,9 @@ window.addEventListener('load', function () {
                             for (var i = 0; i < oldValues.length; i++) {
                                 averageSpeed += oldValues[i] / oldValues.length;
                             }
-
-                            bpmLabel.innerHTML = "Beats Per Minute: " + averageSpeed;
-                            pbAdj.adjustSpeed(averageSpeed / songBPM);
+                            var finalSpeed = Math.round(averageSpeed)
+                            bpmLabel.innerHTML = finalSpeed;
+                            pbAdj.adjustSpeed(finalSpeed / songBPM);
                         }
 
                     }
@@ -227,16 +253,21 @@ window.addEventListener('load', function () {
         var x = data.orientation.x.toPrecision(PRECISION_DECIMAL)
         var y = data.orientation.z.toPrecision(PRECISION_DECIMAL)
         var z = data.orientation.y.toPrecision(PRECISION_DECIMAL)
-        myoinput.innerHTML = "Orientation-- X: " + x + " Y: " + y + " Z: " + z;
 
         if (y > 0.15) {
-            document.getElementById("satb").innerHTML = "Bass";
+            eqLabelBass.className='btn btn-default highlighted'
+            eqLabelMid.className='btn btn-default'
+            eqLabelTreble.className='btn btn-default'
         }
         else if (y < -0.15) {
-            document.getElementById("satb").innerHTML = "Treble";
+            eqLabelBass.className='btn btn-default '
+            eqLabelMid.className='btn btn-default'
+            eqLabelTreble.className='btn btn-default highlighted'
         }
         else {
-            document.getElementById("satb").innerHTML = "Mid";
+            eqLabelBass.className='btn btn-default'
+            eqLabelMid.className='btn btn-default highlighted'
+            eqLabelTreble.className='btn btn-default'
         }
 
         if (x < -0.12) {

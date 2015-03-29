@@ -45,48 +45,55 @@ canvas {
 }
 
 .playpause {
+    position: absolute;
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    top:0;
+    left: 0;
+    right:0;
+    margin-left: 1000px;
+    margin-top: 180px;
 }
 
 .equalizerBars {
-    position: relative;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    left:0;
 }
 
 .equalizerTitle {
     text-align: left;
     display: block;
-    padding-top: 40px;
+    padding-top: 10px;
     left: 0;
+    padding-left: 10px;
     padding-bottom: 15px;
     font-size: 25px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .calibratebutton {
+    position: absolute;
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25px;
-    left:0;
+    top:0;
+    left: 0;
     right:0;
+    margin-left: 1000px;
+    margin-top: 240px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .configsidebar {
     position: absolute;
-    width: 275px;
+    width: 300px;
     height: 600px;
     top: 0;
     left: 0;
-    margin-left: 10px;
-    margin-top: 240px;
+    margin-left: 20px;
+    margin-top: 300px;
 }
 
 #menu8 ul {
@@ -100,7 +107,7 @@ canvas {
 }
 
 #menu8 {
-    width: 200px;
+    width: 400px;
     margin-top: 10px;
 }
 
@@ -147,15 +154,63 @@ canvas {
     height: 50px;
     width: 50px;
     margin-top: 20px;
-    float: left;
+    right:0;
 }
 
 .beatsperminute {
+    position: absolute;
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    top:0;
+    left: 0;
+    right:0;
+    margin-top: 400px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: x-large;
-    padding-bottom: 250px;
+    margin-left: 1000px;
+    padding-bottom: 100px;
+}
+
+.baton {
+    position: absolute;
+    right:0;
+    top:0;
+    margin-top: 50px;
+    margin-right: 5px;
+    height:500px;
+    width:100px;
+
+}
+
+.floatleft {
+    color: black;
+    float:left;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.bpmlabel {
+    color: black;
+    font-size: 14px;
+
+}
+
+.statuslabel {
+    position: absolute;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top:0;
+    left: 0;
+    right:0;
+    font-size: 50px;
+    margin-top: 300px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.highlighted{
+    background: #a3a3a3;
 }
