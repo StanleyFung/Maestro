@@ -1,86 +1,58 @@
 <!DOCTYPE HTML>
 <html>
-<body background="HW1.jpg">
+<body background="HW1.jpg"/>
 <head>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="maestro.css">
     <style>
-        body {
-            background-color : #FFFFFF;
-            color : #84FFF1;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1.5em;
-            line-height: 2em;
-        }
 
-        .buttonWrap {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        button {
-            padding: 1em;
-            margin: auto;
-        }
-          canvas {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
-    #debugger{
-      top: 0;
-      left: 0;
-      position: fixed;
-      background: black;
-      color: #eee;
-      padding: 4px;
-      display: none;
-    }
     </style>
 </head>
 <body>
-  <div id="debugger"></div>
+<div id="debugger"></div>
 
-  <div id="output" class="output"></div>
-  <div id="cursor"></div>
 
-  <div id="movingLeft"></div>
-  <div id="movingRight"></div>
-  <div id="movingUp"></div>
-  <div id="movingDown"></div>
-  <div id="bpm"></div>
-  <div class="container">
-            <div id="demo">
-                <div id="waveform"></div>
+<div id="bpm"></div>
+<div class="container">
+    <div id="demo">
+        <div id="waveform" class="waveTrack"></div>
 
-                <div class="controls">
-                    <button class="btn btn-primary" data-action="play">
-                        <i class="glyphicon glyphicon-play"></i>
-                        Play
-                        /
-                        <i class="glyphicon glyphicon-pause"></i>
-                        Pause
-                    </button>
+        <div class="controls playpause">
+            <button class="btn btn-primary" data-action="play">
+                <i class="glyphicon glyphicon-play"></i>
+                Play
+                /
+                <i class="glyphicon glyphicon-pause"></i>
+                Pause
+            </button>
 
-                    <div id="equalizer">
-                        <!-- Here be equalizer sliders -->
-                    </div>
-                </div>
-            </div>
         </div>
-        
+    </div>
+</div>
+
+<div class="equalizerBars">
+    <div class="equalizerTitle">Equalizer</div>
+
+    <div id="equalizer">
+        <!-- Here be equalizer sliders -->
+    </div>
+</div>
+
 <div id="setZero">
     <button>Calibrate!</button>
 </div>
 
-  <div id = "satb"></div>
-  <div id = "height"></div>
-
-<div> MYO Input </div>
-<div id = "myoinput"></div>
+<div id="satb"></div>
+<div id="height"></div>
+<div id="myoinput"></div>
 </body>
 
-<script>global=window</script>
+<script>global = window</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://js.leapmotion.com/leap-0.6.4.js"></script>
 <script src="leapplugin.js"></script>
@@ -90,19 +62,18 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
- <script src="three.min.js"></script>
+<script src="three.min.js"></script>
 
 
-
-  <script src="http://js.leapmotion.com/leap-0.6.0.js"></script>
-  <script src="http://js.leapmotion.com/leap-plugins-0.1.6.js"></script>
-  <script src="http://js.leapmotion.com/leap.rigged-hand-0.1.4.js"></script>
-
-  <!-- override the bundled playback plugin: -->
-  <script src="leap.playback-0.2.1.js"></script> 
-
+<script src="http://js.leapmotion.com/leap-0.6.0.js"></script>
+<script src="http://js.leapmotion.com/leap-plugins-0.1.6.js"></script>
+<script src="http://js.leapmotion.com/leap.rigged-hand-0.1.4.js"></script>
 
 <script src='myo.js'></script>
 <script type="text/javascript" src="LeapConduct.js"></script>
-<script src="musicLib.js" ></script>
+<script src="musicLib.js"></script>
+
+<!-- override the bundled playback plugin: -->
+<script src="leap.playback-0.2.1.js"></script>
+
 </html>

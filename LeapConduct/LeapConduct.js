@@ -24,10 +24,6 @@ window.addEventListener('load', function () {
     var stageOfConducting = UP
 
     window.output = $('#output');
-    var movingLeftLabel = document.getElementById('movingLeft');
-    var movingRightLabel = document.getElementById('movingRight');
-    var movingUpLabel = document.getElementById('movingUp');
-    var movingDownLabel = document.getElementById('movingDown');
     var bpmLabel = document.getElementById('bpm');
 
     var velocityThreshold = 55;
@@ -43,21 +39,9 @@ window.addEventListener('load', function () {
     var equalizerChangeThreshold = 0.08;
     var negEqualizerChangeThreshhold = -1 * equalizerChangeThreshold;
 
-    var movingBPMAverage = []
-    var movingBPMAverageTick = 0
-  Leap.loop({})
-    .use('playback', {
-      recording: 'pinch-57fps.json.lz',
-      requiredProtocolVersion: 6,
-      pauseOnHand: true,
-      loop: true
-    })
-    .use('riggedHand');
-
-  window.controller = Leap.loopController;
 //LEAP
     Leap.loop({
-        
+
         hand: function (hand) {
             var currentTime = new Date().getTime();
             var screenPosition = hand.screenPosition(hand.palmPosition);
@@ -109,16 +93,6 @@ window.addEventListener('load', function () {
             }
             oldY = currentY
 
-            //var outputContent = "x: " + (screenPosition[0].toPrecision(PRECISION_DECIMAL)) + 'px' +
-            //    "        <br/>y: " + (screenPosition[1].toPrecision(PRECISION_DECIMAL)) + 'px' +
-            //    "        <br/>z: " + (screenPosition[2].toPrecision(PRECISION_DECIMAL)) + 'px';
-            //
-            //output.html(outputContent);
-            //movingLeftLabel.innerHTML = "Moving Left: " + movingLeft;
-            //movingRightLabel.innerHTML = "Moving Right: " + movingRight;
-            //movingUpLabel.innerHTML = "Moving Up: " + movingUp;
-            //movingDownLabel.innerHTML = "Moving Down: " + movingDown;
-
             //Conducting Loop
 
             var oldValues = [];
@@ -149,7 +123,7 @@ window.addEventListener('load', function () {
                     console.log("Moved to Left")
                     timeIntervals[DOWN] = currentTime - previousTime
                     previousTime = currentTime
-                    if(!songStarted){
+                    if (!songStarted) {
                         wavesurfer.play()
                         songStarted = true
                     }
@@ -174,10 +148,9 @@ window.addEventListener('load', function () {
                         var speed = 1000 / average * 60;
                         if (speed >= 60 && speed <= 300) {
                             oldValues.unshift(speed);
-                            if (oldValues.length > 5){
+                            if (oldValues.length > 5) {
                                 oldValues.pop();
                             }
-
 
                             var averageSpeed = 0;
 
@@ -195,17 +168,17 @@ window.addEventListener('load', function () {
             }
 
         }
-    })
-       .use('playback', {
-      recording: 'pinch-57fps.json.lz',
-      requiredProtocolVersion: 6,
-      pauseOnHand: true,
-      loop: true
+    }).use('screenPosition', {
+        scale: 1
+    }).use('playback', {
+        recording: 'pinch-57fps.json.lz',
+        requiredProtocolVersion: 6,
+        pauseOnHand: true,
+        loop: true
     })
     .use('riggedHand');
 
-  window.controller = Leap.loopController;;
-
+    window.controller = Leap.loopController;
 
 //Myo
     var myoinput = document.getElementById('myoinput');
