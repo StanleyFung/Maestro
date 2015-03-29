@@ -43,8 +43,8 @@ window.addEventListener('load', function () {
     document.getElementById("canond").onclick = function(){
       pbAdj.changeSong("CanonD.mp3")
     }
-    document.getElementById("gangam").onclick = function(){
-      pbAdj.changeSong("gangam.mp3")
+    document.getElementById("avicii").onclick = function(){
+      pbAdj.changeSong("aviciithenights.mp3")
     }
         document.getElementById("smackThat").onclick = function(){
       pbAdj.changeSong("smackThat.mp3")

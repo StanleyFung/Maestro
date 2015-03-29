@@ -8,7 +8,7 @@ songs['testsong.mp3'] = 140
 songs['mario.mp3'] = 100
 songs['CanonD.mp3'] = 60
 songs['goodNight.mp3'] = 128
-songs['gangam.mp3'] = 128
+songs['aviciithenights.mp3'] = 126
 songs['smackThat.mp3'] = 120
 
 var currentSongName = 'mario.mp3'
