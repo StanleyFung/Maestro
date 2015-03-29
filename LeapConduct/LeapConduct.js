@@ -29,6 +29,12 @@ window.addEventListener('load', function () {
     var movingUpLabel = document.getElementById('movingUp');
     var movingDownLabel = document.getElementById('movingDown');
     var bpmLabel = document.getElementById('bpm');
+    var menu = document.getElementById('menu8');
+    
+    
+    document.getElementById("mario").onclick = function(){
+      pbAdj.changeSong("mario.mp3")
+    }
 
     var velocityThreshold = 55;
 
@@ -53,7 +59,7 @@ window.addEventListener('load', function () {
       loop: true
     })
     .use('riggedHand');
-
+  
   window.controller = Leap.loopController;
 //LEAP
     Leap.loop({

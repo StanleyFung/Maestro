@@ -2,6 +2,18 @@
 <html>
 <body background="HW1.jpg">
 <head>
+        <style type="text/css">
+         #menu8 ul { list-style: none; margin: 0; padding: 0; }
+         #menu8 img { border: none; }
+         #menu8 { width: 200px; margin-top: 10px; }
+         #menu8 li a { text-decoration: none; height: 32px; font-family: Verdana, Arial, Helvetica, sans-serif; margin: 0; font-size: 10pt; font-weight: bold; background: #FFF; height: 24px; }
+         #menu8 li a:link,
+         #menu8 li a:visited { color: #777; display: block; background: url(http://lh3.ggpht.com/_7wsQzULWIwo/Sze6vCsjMXI/AAAAAAAACqY/iRErP3OUIiE/s800/menu8.gif); padding: 8px 0 0 20px; }
+         #menu8 li a:hover,
+         #menu8 li,
+         #current { color: #257EB7; background: url(http://lh3.ggpht.com/_7wsQzULWIwo/Sze6vCsjMXI/AAAAAAAACqY/iRErP3OUIiE/s800/menu8.gif) 0 -32px; padding: 8px 0 0 25px; }
+         #menu8 li a:active { color: #fff; background: url(http://lh3.ggpht.com/_7wsQzULWIwo/Sze6vCsjMXI/AAAAAAAACqY/iRErP3OUIiE/s800/menu8.gif) 0 -64px; padding: 8px 0 0 25px; }
+      </style>
     <style>
         body {
             background-color : #FFFFFF;
@@ -40,15 +52,22 @@
 </head>
 <body>
   <div id="debugger"></div>
-
   <div id="output" class="output"></div>
   <div id="cursor"></div>
-
   <div id="movingLeft"></div>
   <div id="movingRight"></div>
   <div id="movingUp"></div>
   <div id="movingDown"></div>
   <div id="bpm"></div>
+        <div id="menu8">
+         <ul>
+            <li><a id = "mario" href="#" onclick="">Mario</a></li>
+            <li><a id = "zelda" href="#" onclick="">Zelda</a></li>
+            <li><a id = "testsong" href="#" onclick="">Khalifa</a></li>
+            <li><a id = "canond" href="#" onclick="">Canon in D</a></li>
+            <li><a id = "gangam" href="#" onclick="">Gangam Style</a></li>
+         </ul>
+      </div>
   <div class="container">
             <div id="demo">
                 <div id="waveform"></div>
@@ -99,7 +118,7 @@
   <script src="http://js.leapmotion.com/leap.rigged-hand-0.1.4.js"></script>
 
   <!-- override the bundled playback plugin: -->
-  <script src="leap.playback-0.2.1.js"></script> 
+  <script src="leap.playback-0.2.1.js"></script>
 
 
 <script src='myo.js'></script>

@@ -15,6 +15,12 @@ var currentSongName = 'mario.mp3'
 var songBPM = songs[currentSongName];
 
 function playbackAdjuster() {
+    
+    this.changeSong = function(song){
+      console.log("Changing to " + song);
+      pbAdj = new playbackAdjuster(song);
+      wavesurfer.load(currentSongName);
+    }
 
     this.initEqualizer = function(){
         wavesurfer.init({
