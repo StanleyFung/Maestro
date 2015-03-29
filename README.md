@@ -1,6 +1,6 @@
 # Maestro
 
-![alt tag](https://raw.github.com/StanleyFung/Maestro/master/path/to/img.png)
+![alt tag](https://raw.github.com/StanleyFung/Maestro/master/MaestroConduct/screenshot.jpg)
 
 Maestro utilizes the Myo and Leap Motion to simulate and control music using the motions
 a traditional conductor in an orchestral band would. 
