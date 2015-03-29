@@ -2,9 +2,11 @@ var SONG_ID = "songs"
 
 var wavesurfer = Object.create(WaveSurfer);
 var equalizerRefactor;
-var currentSongName = 'testsong.mp3'
+//var currentSongName = 'testsong.mp3'
 //var currentSongName = 'CanonD.mp3'
-var songBPM = 140;
+var currentSongName = 'Zelda.mp3'
+//var songBPM = 140;
+var songBPM = 100;
 //    var songBPM = 60;
 
 function playbackAdjuster() {
@@ -174,6 +176,6 @@ function playbackAdjuster() {
         this.updateSlider(6, increment*0.8);
         this.updateSlider(7, increment);
         this.updateSlider(8, increment*0.8);
-        this.updateSlider(9, increment*0.8);
+        this.updateSlider(9, increment*0.8*0.8);
     }
 }

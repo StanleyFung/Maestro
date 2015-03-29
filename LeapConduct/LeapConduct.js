@@ -30,8 +30,7 @@ window.addEventListener('load', function () {
     var movingDownLabel = document.getElementById('movingDown');
     var bpmLabel = document.getElementById('bpm');
 
-
-    var velocityThreshold = 55 ;
+    var velocityThreshold = 55;
 
     var timeIntervals = [120, 120, 120, 120]
     var previousTime = 0;
@@ -41,10 +40,11 @@ window.addEventListener('load', function () {
     var pbAdj = new playbackAdjuster();
     pbAdj.initEqualizer()
 
-    var equalizerChangeThreshold = 0.10;
+    var equalizerChangeThreshold = 0.08;
     var negEqualizerChangeThreshhold = -1 * equalizerChangeThreshold;
 
-
+    var movingBPMAverage = []
+    var movingBPMAverageTick = 0
 
 //LEAP
     Leap.loop({
@@ -110,60 +110,75 @@ window.addEventListener('load', function () {
             //movingDownLabel.innerHTML = "Moving Down: " + movingDown;
 
             //Conducting Loop
-            if (!songStarted) {
-                if (stageOfConducting == UP) {
-                    if (movingDown) {
+
+            var oldValues = [];
+
+            if (stageOfConducting == UP) {
+
+                if (movingDown) {
+                    stageOfConducting = DOWN
+                    console.log("Moved to Down")
+
+                    isMovingRight = false
+                    isMovingUp = false
+
+                    movingLeft = false
+                    movingRight = false
+                    movingUp = false
+                    movingDown = false
+                    oldX = 0;
+                    oldY = 0;
+                    timeIntervals[DOWN] = currentTime - previousTime
+                    previousTime = currentTime
+                }
+            }
+            else if (stageOfConducting == DOWN) {
+
+                if (movingLeft) {
+                    stageOfConducting += 1
+                    console.log("Moved to Left")
+                    timeIntervals[DOWN] = currentTime - previousTime
+                    previousTime = currentTime
+                    if(!songStarted){
+                        wavesurfer.play()
                         songStarted = true
                     }
                 }
-            } else {
-                if (stageOfConducting == UP) {
-                    if (movingDown) {
-                        stageOfConducting = DOWN
-                        console.log("Moved to Down")
-
-                        isMovingRight = false
-                        isMovingUp = false
-
-                        movingLeft = false
-                        movingRight = false
-                        movingUp = false
-                        movingDown = false
-                        oldX = 0;
-                        oldY = 0;
-                        timeIntervals[DOWN] = currentTime - previousTime
-                        previousTime = currentTime
-                    }
+            } else if (stageOfConducting == LEFT) {
+                if (movingRight) {
+                    stageOfConducting += 1
+                    console.log("Moved to Right")
+                    timeIntervals[RIGHT] = currentTime - previousTime
+                    previousTime = currentTime
                 }
-                else if (stageOfConducting == DOWN) {
-                    if (movingLeft) {
-                        stageOfConducting += 1
-                        console.log("Moved to Left")
-                        timeIntervals[DOWN] = currentTime - previousTime
-                        previousTime = currentTime
-                    }
-                } else if (stageOfConducting == LEFT) {
-                    if (movingRight) {
-                        stageOfConducting += 1
-                        console.log("Moved to Right")
-                        timeIntervals[RIGHT] = currentTime - previousTime
-                        previousTime = currentTime
-                    }
-                } else if (stageOfConducting == RIGHT) {
-                    if (movingLeft && movingUp) {
-                        stageOfConducting += 1
-                        console.log("Moved to Up")
-                        timeIntervals[UP] = currentTime - previousTime
-                        previousTime = currentTime
-                        //Update BPM
-                        if (songStarted) {
-                            var total = timeIntervals[DOWN] + timeIntervals[LEFT] + timeIntervals[RIGHT] + timeIntervals[UP];
-                            var average = total / 4
-                            var speed = 1000 / average * 60;
-                            bpmLabel.innerHTML = "BPM: " + speed;
-                            pbAdj.adjustSpeed(speed / songBPM);
+            } else if (stageOfConducting == RIGHT) {
+                if (movingLeft && movingUp) {
+                    stageOfConducting += 1
+                    console.log("Moved to Up")
+                    timeIntervals[UP] = currentTime - previousTime
+                    previousTime = currentTime
+                    //Update BPM
+                    if (songStarted) {
+                        var total = timeIntervals[DOWN] + timeIntervals[LEFT] + timeIntervals[RIGHT] + timeIntervals[UP];
+                        var average = total / 4
+                        var speed = 1000 / average * 60;
+                        if (speed >= 60 && speed <= 300) {
+                            oldValues.unshift(speed);
+                            if (oldValues.length > 5){
+                                oldValues.pop();
+                            }
 
+
+                            var averageSpeed = 0;
+
+                            for (var i = 0; i < oldValues.length; i++) {
+                                averageSpeed += oldValues[i] / oldValues.length;
+                            }
+
+                            bpmLabel.innerHTML = "BPM: " + averageSpeed;
+                            pbAdj.adjustSpeed(averageSpeed / songBPM);
                         }
+
                     }
                 }
                 oldTime = currentTime;
@@ -179,7 +194,6 @@ window.addEventListener('load', function () {
 //Myo
     var myoinput = document.getElementById('myoinput');
     var myo = Myo.create();
-
 
     var calibrateButton = document.getElementById("setZero");
     calibrateButton.onclick = function () {
