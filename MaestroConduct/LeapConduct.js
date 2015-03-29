@@ -274,19 +274,16 @@ window.addEventListener('load', function () {
             var equalizerChange = z * 20;
             if (y > 0.15) {
                 if (z < negEqualizerChangeThreshhold || z > equalizerChangeThreshold) {
-                    document.getElementById("height").innerHTML = z;
                     pbAdj.changeBass(equalizerChange);
                 }
             }
             else if (y < -0.15) {
                 if (z < negEqualizerChangeThreshhold || z > equalizerChangeThreshold) {
-                    document.getElementById("height").innerHTML = z;
                     pbAdj.changeTrebel(equalizerChange);
                 }
             }
             else {
                 if (z < negEqualizerChangeThreshhold || z > equalizerChangeThreshold) {
-                    document.getElementById("height").innerHTML = z;
                     pbAdj.changeMid(equalizerChange);
                 }
             }
