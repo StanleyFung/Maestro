@@ -45,7 +45,6 @@ canvas {
 
 .playpause{
     text-align: center;
-    padding-top: 175px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -60,9 +59,21 @@ canvas {
 }
 
 .equalizerTitle {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .calibratebutton {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
 }
 
 .configsidebar {
@@ -71,8 +82,7 @@ canvas {
     height: 600px;
     top:0;
     right:0;
-    background: lightgrey;
-
+    background: rgba(121, 121, 121, 0.67);
 }
 #menu8 ul { list-style: none; margin: 0; padding: 0; }
 #menu8 img { border: none; }
@@ -84,3 +94,15 @@ canvas {
 #menu8 li,
 #current { color: #257EB7; background: url(http://lh3.ggpht.com/_7wsQzULWIwo/Sze6vCsjMXI/AAAAAAAACqY/iRErP3OUIiE/s800/menu8.gif) 0 -32px; padding: 8px 0 0 25px; }
 #menu8 li a:active { color: #fff; background: url(http://lh3.ggpht.com/_7wsQzULWIwo/Sze6vCsjMXI/AAAAAAAACqY/iRErP3OUIiE/s800/menu8.gif) 0 -64px; padding: 8px 0 0 25px; }
+
+.configtitle {
+    color: antiquewhite;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: x-large;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

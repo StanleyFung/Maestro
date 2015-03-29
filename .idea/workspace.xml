@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2484a05f-5c29-457b-908a-8ac459c54343" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LeapConduct/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LeapConduct/mainframe.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/LeapConduct.html" afterPath="$PROJECT_DIR$/LeapConduct/LeapConduct.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" afterPath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/maestro.css" afterPath="$PROJECT_DIR$/LeapConduct/maestro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/musicLib.js" afterPath="$PROJECT_DIR$/LeapConduct/musicLib.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyoConduct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,21 +72,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeapConduct.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LeapConduct.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5234493" vertical-offset="194" max-vertical-offset="1410">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+            <state vertical-scroll-proportion="-18.75" vertical-offset="360" max-vertical-offset="1425">
+              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maestro.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="maestro.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LeapConduct/maestro.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1380">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8214286" vertical-offset="1008" max-vertical-offset="1695">
+              <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -99,8 +95,8 @@
       <file leaf-file-name="LeapConduct.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="285" max-vertical-offset="3975">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.814815" vertical-offset="362" max-vertical-offset="3795">
+              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -123,8 +119,8 @@
         <option value="$PROJECT_DIR$/LeapConduct/main.js" />
         <option value="$PROJECT_DIR$/LeapConduct/musicLib.js" />
         <option value="$PROJECT_DIR$/LeapConduct/LeapConduct.js" />
-        <option value="$PROJECT_DIR$/LeapConduct/maestro.css" />
         <option value="$PROJECT_DIR$/LeapConduct/LeapConduct.html" />
+        <option value="$PROJECT_DIR$/LeapConduct/maestro.css" />
       </list>
     </option>
   </component>
@@ -511,24 +507,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="285" max-vertical-offset="3975">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LeapConduct/maestro.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1380">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.814815" vertical-offset="362" max-vertical-offset="3795">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5234493" vertical-offset="194" max-vertical-offset="1410">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        <state vertical-scroll-proportion="-18.75" vertical-offset="360" max-vertical-offset="1425">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LeapConduct/maestro.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8214286" vertical-offset="1008" max-vertical-offset="1695">
+          <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
           <folding />
         </state>
       </provider>
