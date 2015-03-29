@@ -3,7 +3,7 @@ var SONG_ID = "songs"
 var wavesurfer = Object.create(WaveSurfer);
 var equalizerRefactor;
 var songs = {}
-songs['Zelda.mp3'] = 100
+songs['zelda.mp3'] = 100
 songs['testsong.mp3'] = 140
 songs['mario.mp3'] = 100
 songs['CanonD.mp3'] = 60
@@ -22,6 +22,7 @@ function playbackAdjuster() {
       wavesurfer.load(song);
       currentSongName = song;
       songBPM = songs[song];
+      equalizerRefactor.innerHTML = '';
     }
 
     this.initEqualizer = function(){
