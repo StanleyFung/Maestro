@@ -100,7 +100,7 @@ function playbackAdjuster() {
             input.setAttribute('orient', 'vertical');
             wavesurfer.drawer.style(input, {
                 'webkitAppearance': 'slider-vertical',
-                width: '50px',
+                width: '25px',
                 height: '150px'
             });
             equalizerRefactor.appendChild(input);

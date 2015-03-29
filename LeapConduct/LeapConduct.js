@@ -175,7 +175,7 @@ window.addEventListener('load', function () {
                                 averageSpeed += oldValues[i] / oldValues.length;
                             }
 
-                            bpmLabel.innerHTML = "BPM: " + averageSpeed;
+                            bpmLabel.innerHTML = "Beats Per Minute: " + averageSpeed;
                             pbAdj.adjustSpeed(averageSpeed / songBPM);
                         }
 

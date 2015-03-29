@@ -29,6 +29,7 @@
     <div id="demo">
         <div id="waveform" class="waveTrack"></div>
 
+        <div id="bpm"  class="beatsperminute" >Beats Per Minute: </div>
         <div class="controls playpause">
             <button class="btn btn-primary" data-action="play">
                 <i class="glyphicon glyphicon-play"></i>
@@ -41,19 +42,19 @@
     </div>
 </div>
 
-<div class="equalizerBars">
-    <div class="equalizerTitle">Equalizer</div>
-
-    <div id="equalizer">
-        <!-- Here be equalizer sliders -->
-    </div>
-</div>
-<div id="bpm"  class="equalizerTitle" >Beats Per Minute: </div>
 
 <div class="configsidebar">
     <div id="setZero">
         <div class="configtitle">Configuration</div>
-        <button class="calibratebutton">Calibrate!</button>
+        <img src="calibrateicon.png" class="calibrationicon">
+        <button class="btn btn-primary calibratebutton">Calibrate!</button>
+    </div>
+
+    <div class="equalizerBars">
+        <div class="equalizerTitle">Equalizer</div>
+        <div id="equalizer">
+            <!-- Here be equalizer sliders -->
+        </div>
     </div>
 </div>
 
