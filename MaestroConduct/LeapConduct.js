@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
     var pbAdj = new playbackAdjuster();
     pbAdj.initEqualizer()
 
-    var equalizerChangeThreshold = 0.08;
+    var equalizerChangeThreshold = 0.06;
     var negEqualizerChangeThreshhold = -1 * equalizerChangeThreshold;
     var previousConductGestureTime = 0;
 
@@ -195,7 +195,7 @@ window.addEventListener('load', function () {
                         var total = timeIntervals[DOWN] + timeIntervals[LEFT] + timeIntervals[RIGHT] + timeIntervals[UP];
                         var average = total / 4
                         var speed = 1000 / average * 60;
-                        if (speed >= 60 && speed <= 300) {
+                        if (speed >= 60 && speed <= 200) {
                             oldValues.unshift(speed);
                             if (oldValues.length > 5) {
                                 oldValues.pop();
