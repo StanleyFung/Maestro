@@ -25,8 +25,8 @@ function playbackAdjuster() {
     this.initEqualizer = function(){
         wavesurfer.init({
         container: document.querySelector('#waveform'),
-        waveColor: '#A8DBA8',
-        progressColor: '#3B8686'
+        waveColor: '#f15c00',
+        progressColor: '#003300'
     });
 
     // Load audio from URL
