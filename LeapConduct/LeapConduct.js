@@ -45,9 +45,19 @@ window.addEventListener('load', function () {
 
     var movingBPMAverage = []
     var movingBPMAverageTick = 0
+  Leap.loop({})
+    .use('playback', {
+      recording: 'pinch-57fps.json.lz',
+      requiredProtocolVersion: 6,
+      pauseOnHand: true,
+      loop: true
+    })
+    .use('riggedHand');
 
+  window.controller = Leap.loopController;
 //LEAP
     Leap.loop({
+        
         hand: function (hand) {
             var currentTime = new Date().getTime();
             var screenPosition = hand.screenPosition(hand.palmPosition);
@@ -186,9 +196,15 @@ window.addEventListener('load', function () {
 
         }
     })
-        .use('screenPosition', {
-            scale: 1
-        });
+       .use('playback', {
+      recording: 'pinch-57fps.json.lz',
+      requiredProtocolVersion: 6,
+      pauseOnHand: true,
+      loop: true
+    })
+    .use('riggedHand');
+
+  window.controller = Leap.loopController;;
 
 
 //Myo
