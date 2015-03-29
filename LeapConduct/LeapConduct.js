@@ -31,7 +31,7 @@ window.addEventListener('load', function () {
         pbAdj.changeSong("mario.mp3")
     }
     document.getElementById("zelda").onclick = function(){
-      pbAdj.changeSong("Zelda.mp3")
+      pbAdj.changeSong("zelda.mp3")
     }
     document.getElementById("testsong").onclick = function(){
       pbAdj.changeSong("testsong.mp3")
@@ -41,6 +41,12 @@ window.addEventListener('load', function () {
     }
     document.getElementById("gangam").onclick = function(){
       pbAdj.changeSong("gangam.mp3")
+    }
+        document.getElementById("smackThat").onclick = function(){
+      pbAdj.changeSong("smackThat.mp3")
+    }
+    document.getElementById("goodNight").onclick = function(){
+      pbAdj.changeSong("goodNight.mp3")
     }
 
     var velocityThreshold = 55;
