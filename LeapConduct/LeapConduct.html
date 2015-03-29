@@ -1,21 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <script>global=window</script>
-
-    <script src="http://js.leapmotion.com/leap-0.6.4.js"></script>
-    <script src="leapplugin.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../wavesurfer.js/dist/wavesurfer.min.js"></script>
-
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
-
-    <script src='myo.js'></script>
-    <script type="text/javascript" src="LeapConduct.js"></script>
-    <script src="musicLib.js" ></script>
-
     <style>
         body {
             background-color : #0A0A0A;
@@ -40,7 +25,7 @@
   
   <div id="output" class="output"></div>
   <div id="cursor"></div>
-  
+
   <div id="movingLeft"></div>
   <div id="movingRight"></div>
   <div id="movingUp"></div>
@@ -66,11 +51,29 @@
             </div>
         </div>
         
-<div class="buttonWrap">
-    <button>Hover Me!</button>
+<div id="setZero">
+    <button>Calibrate!</button>
 </div>
+
+  <div id = "satb"></div>
+  <div id = "height"></div>
 
 <div> MYO Input </div>
 <div id = "myoinput"></div>
 </body>
+
+<script>global=window</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://js.leapmotion.com/leap-0.6.4.js"></script>
+<script src="leapplugin.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../wavesurfer.js/dist/wavesurfer.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+
+<script src='myo.js'></script>
+<script type="text/javascript" src="LeapConduct.js"></script>
+<script src="musicLib.js" ></script>
 </html>
