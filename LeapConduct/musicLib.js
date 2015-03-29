@@ -1,6 +1,13 @@
 var SONG_ID = "songs"
 
 var wavesurfer = Object.create(WaveSurfer);
+var equalizerRefactor;
+//var currentSongName = 'testsong.mp3'
+//var currentSongName = 'CanonD.mp3'
+var currentSongName = 'Zelda.mp3'
+//var songBPM = 140;
+var songBPM = 100;
+//    var songBPM = 60;
 
 function playbackAdjuster() {
 
@@ -12,7 +19,7 @@ function playbackAdjuster() {
     });
 
     // Load audio from URL
-    wavesurfer.load('testsong.mp3');
+    wavesurfer.load(currentSongName);
 
     // Equalizer
     wavesurfer.on('ready', function () {
@@ -47,8 +54,7 @@ function playbackAdjuster() {
             }, {
                 f: 16000,
                 type: 'highshelf'
-            }
-        ];
+            }];
 
         // Create filters
         var filters = EQ.map(function (band) {
@@ -64,27 +70,30 @@ function playbackAdjuster() {
         wavesurfer.backend.setFilters(filters);
 
         // Bind filters to vertical range sliders
-        var container = document.querySelector('#equalizer');
+        equalizerRefactor = document.querySelector('#equalizer');
         filters.forEach(function (filter) {
             var input = document.createElement('input');
             wavesurfer.util.extend(input, {
                 type: 'range',
-                min: -40,
-                max: 40,
+                min: -300,
+                max: 300,
                 value: 0,
                 title: filter.frequency.value
             });
-            input.style.visibility = 'hidden';
+
+            input.style.display = 'inline-block';
+
+            //input.style.visibility = 'hidden';
             input.setAttribute('orient', 'vertical');
             wavesurfer.drawer.style(input, {
                 'webkitAppearance': 'slider-vertical',
                 width: '50px',
                 height: '150px'
             });
-            container.appendChild(input);
+            equalizerRefactor.appendChild(input);
 
             var onChange = function (e) {
-                filter.gain.value = ~~e.target.value;
+                filter.gain.value = ~~e.target.value/10;
             };
 
             input.addEventListener('input', onChange);
@@ -107,15 +116,15 @@ function playbackAdjuster() {
     }
   
     this.adjustSpeed = function (factor) {
-        console.log("Adjusting Speed by " + factor);
+        //console.log("Adjusting Speed by " + factor);
         wavesurfer.setPlaybackRate(factor);
-        console.log("Current playback speed " + wavesurfer.backend.playbackRate)
+        //console.log("Current playback speed " + wavesurfer.backend.playbackRate)
     }
 
     this.adjustVolume = function (factor) {
-        console.log("Adjusting Volume by " + factor);
+        //console.log("Adjusting Volume by " + factor);
         wavesurfer.backend.setVolume(factor + wavesurfer.backend.getVolume())
-        console.log("Current playback speed " + wavesurfer.backend.getVolume())
+        //console.log("Current playback speed " + wavesurfer.backend.getVolume())
     }
 
     this.pausePlayBack = function (){
@@ -134,12 +143,39 @@ function playbackAdjuster() {
         var song = document.getElementById(SONG_ID);
         song.play();
     }
-    this.play = function (src){
-        var song = document.getElementById(SONG_ID);
-        song.src = src;
-        song.play();
-    }
+    //this.play = function (src){
+    //    var song = document.getElementById(SONG_ID);
+    //    song.src = src;
+    //    song.play();
+    //}
+
     this.getSongObject = function(){
         return document.getElementById(SONG_ID);
+    }
+
+    this.updateSlider  = function(num, increment){
+        var currentValue = parseFloat(equalizerRefactor.children[num].value);
+        currentValue += increment;
+        equalizerRefactor.children[num].value = currentValue
+        var event = new Event('change');
+        equalizerRefactor.children[num].dispatchEvent(event)
+    }
+
+    this.changeBass = function(increment){
+        this.updateSlider(0,increment*0.8);
+        this.updateSlider(1,increment);
+        this.updateSlider(2,increment*0.8);
+    }
+
+    this.changeMid = function(increment){
+        this.updateSlider(3,increment*0.8);
+        this.updateSlider(4,increment);
+        this.updateSlider(5,increment*0.8);
+    }
+    this.changeTrebel = function(increment){
+        this.updateSlider(6, increment*0.8);
+        this.updateSlider(7, increment);
+        this.updateSlider(8, increment*0.8);
+        this.updateSlider(9, increment*0.8*0.8);
     }
 }
