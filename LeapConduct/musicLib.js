@@ -19,7 +19,9 @@ function playbackAdjuster() {
     this.changeSong = function(song){
       console.log("Changing to " + song);
       pbAdj = new playbackAdjuster(song);
-      wavesurfer.load(currentSongName);
+      wavesurfer.load(song);
+      currentSongName = song;
+      songBPM = songs[song];
     }
 
     this.initEqualizer = function(){

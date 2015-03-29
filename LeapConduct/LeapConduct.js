@@ -30,6 +30,18 @@ window.addEventListener('load', function () {
     document.getElementById("mario").onclick = function(){
       pbAdj.changeSong("mario.mp3")
     }
+    document.getElementById("zelda").onclick = function(){
+      pbAdj.changeSong("Zelda.mp3")
+    }
+    document.getElementById("testsong").onclick = function(){
+      pbAdj.changeSong("testsong.mp3")
+    }
+    document.getElementById("canond").onclick = function(){
+      pbAdj.changeSong("CanonD.mp3")
+    }
+    document.getElementById("gangam").onclick = function(){
+      pbAdj.changeSong("gangam.mp3")
+    }
 
     var velocityThreshold = 55;
 
