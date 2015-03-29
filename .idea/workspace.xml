@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2484a05f-5c29-457b-908a-8ac459c54343" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" afterPath="$PROJECT_DIR$/LeapConduct/LeapConduct.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeapConduct/musicLib.js" afterPath="$PROJECT_DIR$/LeapConduct/musicLib.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -65,8 +64,8 @@
       <file leaf-file-name="musicLib.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LeapConduct/musicLib.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68085104" vertical-offset="2382" max-vertical-offset="2805">
-              <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.31914893" vertical-offset="0" max-vertical-offset="2880">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -75,9 +74,12 @@
       <file leaf-file-name="LeapConduct.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.75" vertical-offset="849" max-vertical-offset="1275">
-              <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
-              <folding />
+            <state vertical-scroll-proportion="-12.75" vertical-offset="1269" max-vertical-offset="1710">
+              <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
+              <folding>
+                <marker date="1427607914000" expanded="true" signature="21:2962" placeholder="..." />
+                <marker date="1427607914000" expanded="true" signature="385:726" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,9 +87,18 @@
       <file leaf-file-name="LeapConduct.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.232142" vertical-offset="3086" max-vertical-offset="3885">
-              <caret line="175" column="29" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="8.232142" vertical-offset="3326" max-vertical-offset="4125">
+              <caret line="191" column="21" selection-start-line="191" selection-start-column="21" selection-end-line="191" selection-end-column="21" />
+              <folding>
+                <marker date="1427607914000" expanded="true" signature="1471:6927" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="1496:6914" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="5765:6859" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="5791:6797" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="6163:6794" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="6318:6787" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="6365:6415" placeholder="{...}" />
+                <marker date="1427607914000" expanded="true" signature="6528:6580" placeholder="{&quot;scale&quot;: 1...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -370,7 +381,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1245">
           <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
+          <folding>
+            <marker date="1427607914000" expanded="true" signature="21:2962" placeholder="..." />
+            <marker date="1427607914000" expanded="true" signature="385:726" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -378,7 +392,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="2985">
           <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1427607914000" expanded="true" signature="1471:6927" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="1496:6914" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="5765:6859" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="5791:6797" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6163:6794" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6318:6787" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6365:6415" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6528:6580" placeholder="{&quot;scale&quot;: 1...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -433,24 +456,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.75" vertical-offset="849" max-vertical-offset="1275">
-          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
-          <folding />
+        <state vertical-scroll-proportion="-12.75" vertical-offset="1269" max-vertical-offset="1710">
+          <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
+          <folding>
+            <marker date="1427607914000" expanded="true" signature="21:2962" placeholder="..." />
+            <marker date="1427607914000" expanded="true" signature="385:726" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LeapConduct/LeapConduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.232142" vertical-offset="3086" max-vertical-offset="3885">
-          <caret line="175" column="29" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="8.232142" vertical-offset="3326" max-vertical-offset="4125">
+          <caret line="191" column="21" selection-start-line="191" selection-start-column="21" selection-end-line="191" selection-end-column="21" />
+          <folding>
+            <marker date="1427607914000" expanded="true" signature="1471:6927" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="1496:6914" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="5765:6859" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="5791:6797" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6163:6794" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6318:6787" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6365:6415" placeholder="{...}" />
+            <marker date="1427607914000" expanded="true" signature="6528:6580" placeholder="{&quot;scale&quot;: 1...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LeapConduct/musicLib.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68085104" vertical-offset="2382" max-vertical-offset="2805">
-          <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.31914893" vertical-offset="0" max-vertical-offset="2880">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
         </state>
       </provider>

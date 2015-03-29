@@ -2,12 +2,17 @@ var SONG_ID = "songs"
 
 var wavesurfer = Object.create(WaveSurfer);
 var equalizerRefactor;
-//var currentSongName = 'testsong.mp3'
-//var currentSongName = 'CanonD.mp3'
-var currentSongName = 'Zelda.mp3'
-//var songBPM = 140;
-var songBPM = 100;
-//    var songBPM = 60;
+var songs = {}
+songs['Zelda.mp3'] = 100
+songs['testsong.mp3'] = 140
+songs['mario.mp3'] = 100
+songs['CanonD.mp3'] = 60
+songs['goodNight.mp3'] = 128
+songs['gangam.mp3'] = 128
+songs['smackThat.mp3'] = 120
+
+var currentSongName = 'mario.mp3'
+var songBPM = songs[currentSongName];
 
 function playbackAdjuster() {
 
