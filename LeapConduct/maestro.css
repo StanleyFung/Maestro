@@ -62,6 +62,18 @@ canvas {
 .equalizerTitle {
 }
 
+.calibratebutton {
+}
+
+.configsidebar {
+    position: absolute;
+    width: 200px;
+    height: 600px;
+    top:0;
+    right:0;
+    background: lightgrey;
+
+}
 #menu8 ul { list-style: none; margin: 0; padding: 0; }
 #menu8 img { border: none; }
 #menu8 { width: 200px; margin-top: 10px; }
