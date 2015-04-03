@@ -19,5 +19,12 @@ How to Run:
 
 1. Clone Repo
 2. Follow https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally
- and run your local server from the root of this project. (/Maestro)
-3. Go to http://localhost:8000/LeapConduct/LeapConduct.html in Chrome 
+ and run your local server from the root of this project. (/Maestro).
+<br>
+Eg.
+<br>
+cd ~/GitHub/Maestro
+<br>
+'python -m SimpleHTTPServer'
+<br>
+3. Go to http://localhost:8000/MaestroConduct/Maestro.html in Chrome 
